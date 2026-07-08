@@ -1,0 +1,44 @@
+{
+  "name": "customer-churn-cohort-skill",
+  "version": "1.0.0",
+  "description": "Group customers into monthly sign-up cohorts and monitor decay rates to output churn statistics.",
+  "author": "alphaparkinc",
+  "category": "analytics",
+  "tags": [
+    "cohorts",
+    "churn",
+    "analytics",
+    "retention",
+    "ltv"
+  ],
+  "inputs": {
+    "cohort_registrations": {
+      "type": "integer",
+      "description": "Total users registered in the cohort month."
+    },
+    "active_users_month1": {
+      "type": "integer",
+      "description": "Users remaining active in month 1."
+    },
+    "active_users_month3": {
+      "type": "integer",
+      "description": "Users remaining active in month 3."
+    }
+  },
+  "outputs": {
+    "month1_retention_pct": {
+      "type": "number",
+      "description": "Retention percentage at month 1."
+    },
+    "month3_retention_pct": {
+      "type": "number",
+      "description": "Retention percentage at month 3."
+    },
+    "decay_tier": {
+      "type": "string",
+      "description": "Overall cohort stability grade (stable, decaying, high-risk)."
+    }
+  },
+  "entrypoint": "client.py",
+  "example": "example_usage.py"
+}
